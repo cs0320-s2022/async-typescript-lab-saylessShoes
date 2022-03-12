@@ -1,21 +1,14 @@
 package edu.brown.cs.student.main;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.util.Map;
-import java.util.Set;
-import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
-import freemarker.template.Configuration;
+import com.google.gson.JsonParser;
+import com.google.gson.stream.JsonReader;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
-import joptsimple.OptionSpec;
 import spark.*;
-import spark.template.freemarker.FreeMarkerEngine;
+
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
 /**
  * The Main class of our project. This is where execution begins.
@@ -80,6 +73,8 @@ public final class Main {
     // Allows requests from any domain (i.e., any URL). This makes development
     // easier, but it’s not a good idea for deployment.
     Spark.before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
+
+    Spark.post("/results", new ResultsHandler());
   }
 
   /**
@@ -110,6 +105,9 @@ public final class Main {
       // TODO: Get JSONObject from req and use it to get the value of the sun, moon,
       // and rising
       // for generating matches
+
+
+      res.bo
 
       // TODO: use the MatchMaker.makeMatches method to get matches
 
