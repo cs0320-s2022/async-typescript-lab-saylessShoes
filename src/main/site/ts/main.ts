@@ -8,6 +8,8 @@ const risingIn: HTMLSelectElement | null = document.querySelector('rising')
 // Here, when the value of sun is changed, we will call the method postAndUpdate.
 // TODO: Do the same for moon and rising
 
+sunIn.addEventListener("keyup", function() { =>  {postAndUpdate()}
+
 
 // TODO: Define a type for the request data object here.
 // type MatchesRequestData = {}
