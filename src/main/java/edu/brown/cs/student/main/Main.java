@@ -1,14 +1,17 @@
 package edu.brown.cs.student.main;
 
+import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
-import com.google.gson.JsonParser;
-import com.google.gson.stream.JsonReader;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
+import org.json.JSONException;
+import org.json.JSONObject;
 import spark.*;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * The Main class of our project. This is where execution begins.
@@ -105,17 +108,40 @@ public final class Main {
       // TODO: Get JSONObject from req and use it to get the value of the sun, moon,
       // and rising
       // for generating matches
+      String sun = null;
+      String moon = null;
+      String rising = null;
+      try {
+        JSONObject json = new JSONObject(res.body().toString());
+        sun = json.getString("sun");
+        moon = json.getString("moon");
+        rising = json.getString("rising");
+      } catch (JSONException e) {
+        e.printStackTrace();
+      }
 
-
-      res.bo
 
       // TODO: use the MatchMaker.makeMatches method to get matches
 
+      List<String> matches = MatchMaker.makeMatches(sun, moon, rising);
+
       // TODO: create an immutable map using the matches
 
+      HashMap<Integer, String> matchMap = null;
+      for (int i = 0; i <= 5; i++) {
+        matchMap = new HashMap<>();
+        matchMap.put(i, matches.get(i));
+      }
+
+      ImmutableMap<Integer, String> immMap = ImmutableMap.copyOf(matchMap);
+
       // TODO: return a json of the suggestions (HINT: use GSON.toJson())
-      Gson GSON = new Gson();
-      return null;
+
+      Gson gson = new Gson();
+
+      String results = gson.toJson(immMap);
+
+      return results;
     }
   }
 }
