@@ -2,13 +2,12 @@
 //  HINT: look at the HTML
 
 const suggestions: NodeListOf<HTMLUListElement> = document.querySelectorAll('suggestions')
-const sun: NodeListOf<HTMLSelectElement> = document.querySelectorAll('sun')
-const moon: NodeListOf<HTMLSelectElement> = document.querySelectorAll('moon')
-const rising: NodeListOf<HTMLSelectElement> = document.querySelectorAll('rising')
-
+const sunIn: HTMLSelectElement | null = document.querySelector('sun')
+const moonIn: HTMLSelectElement | null = document.querySelector('moon')
+const risingIn: HTMLSelectElement | null = document.querySelector('rising')
 // Here, when the value of sun is changed, we will call the method postAndUpdate.
 // TODO: Do the same for moon and rising
-sun.addEventListener()
+
 
 // TODO: Define a type for the request data object here.
 // type MatchesRequestData = {}

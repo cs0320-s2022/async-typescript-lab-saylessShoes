@@ -11,12 +11,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const suggestions = document.querySelectorAll('suggestions');
-const sun = document.querySelectorAll('sun');
-const moon = document.querySelectorAll('moon');
-const rising = document.querySelectorAll('rising');
+const sunIn = document.querySelector('sun');
+const moonIn = document.querySelector('moon');
+const risingIn = document.querySelector('rising');
 // Here, when the value of sun is changed, we will call the method postAndUpdate.
 // TODO: Do the same for moon and rising
-sun.addEventListener();
 // TODO: Define a type for the request data object here.
 // type MatchesRequestData = {}
 // TODO: Define a type for the response data object here.
